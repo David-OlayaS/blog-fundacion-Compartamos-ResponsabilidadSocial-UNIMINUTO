@@ -1,150 +1,172 @@
-:root{
-  --bg:#0b0f14;
-  --card:#121926;
-  --text:#e8eef7;
-  --muted:#a8b3c7;
-  --accent:#7bd389;
-  --border:rgba(255,255,255,.10);
-}
-
+/* ====== Reset básico ====== */
 *{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #070a10 0%, #0b0f14 60%, #070a10 100%);
-  color:var(--text);
+  color:#1f2937;
+  background:#f6f7f9;
+  line-height:1.55;
+}
+img{ max-width:100%; display:block; }
+
+/* ====== Layout ====== */
+.container{
+  width:min(1050px, 92%);
+  margin: 0 auto;
+  padding: 28px 0 48px;
 }
 
-.container{ width:min(980px, 92vw); margin:0 auto; }
-
-.topbar{
-  border-bottom:1px solid var(--border);
-  background: rgba(0,0,0,.3);
-  backdrop-filter: blur(6px);
-  padding: 26px 0 18px;
+header{
+  background: linear-gradient(180deg, #0f5132 0%, #0b3b2a 100%);
+  color:#fff;
+  padding: 28px 0;
 }
-h1{ margin:0 0 6px; font-size: 1.8rem; }
-.subtitle{ margin:0 0 14px; color:var(--muted); }
+header .container{ padding: 0; }
+h1{
+  margin:0;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing:.2px;
+}
+header p{
+  margin: 6px 0 0;
+  opacity:.9;
+}
 
+/* ====== Navegación ====== */
 .nav{
-  display:flex; gap:14px; flex-wrap:wrap;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
 }
 .nav a{
-  color:var(--text);
   text-decoration:none;
-  padding:8px 12px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  font-size:.95rem;
+  color:#eaf6ef;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight:600;
+  font-size:.92rem;
 }
-.nav a:hover{ border-color:rgba(123,211,137,.55); }
+.nav a:hover{
+  background: rgba(255,255,255,.18);
+}
 
-.section{ padding: 26px 0; }
-.section h2{ margin: 0 0 14px; font-size: 1.35rem; }
+/* ====== Secciones ====== */
+.section{
+  margin-top: 26px;
+}
+.section h2{
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color:#0b3b2a;
+}
 
+/* ====== Posts ====== */
 .post{
-  background: var(--card);
-  border:1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px 18px 12px;
-  margin: 14px 0 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 8px 22px rgba(17,24,39,.06);
+  margin: 16px 0;
+}
+.post h3{
+  margin: 10px 0 8px;
+  font-size: 1.15rem;
+}
+.post h4{
+  margin: 14px 0 8px;
+  font-size: 1rem;
+  color:#0b3b2a;
 }
 .post-meta{
-  display:flex; gap:12px; align-items:center;
-  color:var(--muted); font-size:.92rem;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
 }
 .tag{
-  color:#06210f;
-  background: var(--accent);
+  background:#e8f5ee;
+  color:#0f5132;
+  border:1px solid #cbe7d7;
   padding: 4px 10px;
-  border-radius: 999px;
-  font-weight: 700;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.82rem;
+}
+time{
+  color:#6b7280;
+  font-size:.9rem;
 }
 
-.post h3{ margin: 10px 0 10px; }
-.post h4{ margin: 16px 0 8px; color: var(--accent); }
-.post p, .post li{ color: var(--text); line-height: 1.55; }
-.post ul, .post ol{ margin: 8px 0 0 18px; }
-
-a{ color: var(--accent); }
-code{
-  background: rgba(255,255,255,.07);
-  padding: 2px 6px;
-  border-radius: 8px;
+/* ====== Caja ODS ====== */
+.ods{
+  margin: 10px 0;
+  padding: 12px 12px;
+  border: 1px solid #cbe7d7;
+  background: #f0fbf5;
+  border-radius: 14px;
+  color:#14532d;
 }
 
-.footer{
-  border-top: 1px solid var(--border);
-  padding: 18px 0;
-
-
-  /* === Galería / multimedia === */
-.muted { color: var(--muted); }
-
+/* ====== Galería (SIN deformar) ====== */
 .gallery{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
   margin-top: 12px;
 }
 
+/* Card */
 .card{
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 8px 22px rgba(17,24,39,.06);
 }
 
-.card img{
-  width: 100%;
-  height: auto;         /* evita deformación */
-  display: block;
-  border-radius: 12px;
+/* contenedor de imagen con proporción tipo revista */
+.card .media{
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  background:#f3f4f6;
 }
-
-/* “cuadro” consistente tipo revista, sin deformar */
-.card a{
-  display: block;
-  aspect-ratio: 4 / 3;  /* puedes probar 1/1 o 16/9 */
-  overflow: hidden;
-  border-radius: 12px;
-}
-  
-.card figcaption{
-  padding: 10px 12px 12px;
-  color: var(--muted);
-  font-size: .92rem;
-  line-height: 1.35;
-}
-.card a img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* recorta, NO estira */
+.card .media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;  /* recorta sin estirar */
   object-position: center;
 }
-  
-/* Estilos de “mimetización” */
-.img-bw{
-  filter: grayscale(1) contrast(1.12) brightness(1.05);
+
+/* caption */
+.card figcaption{
+  padding: 10px 12px 12px;
+  color:#4b5563;
+  font-size:.92rem;
 }
 
-.img-brand{
-  filter: saturate(0.82) contrast(1.07) brightness(1.02);
+/* variantes para fotos verticales */
+.card.portrait .media{ aspect-ratio: 3 / 4; }
+.card.wide .media{ aspect-ratio: 16 / 9; }
+
+/* filtros opcionales para coherencia visual */
+.img-bw{ filter: grayscale(1) contrast(1.12) brightness(1.05); }
+.img-brand{ filter: saturate(.9) contrast(1.05) brightness(1.02); }
+
+/* ====== Footer ====== */
+footer{
+  margin-top: 28px;
+  color:#6b7280;
+  font-size:.92rem;
 }
 
-/* Caja de reflexión ODS */
-.ods{
-  margin: 12px 0;
-  padding: 12px 12px;
-  border: 1px solid rgba(123,211,137,.35);
-  background: rgba(123,211,137,.08);
-  border-radius: 14px;
+/* ====== Responsive ajuste ====== */
+@media (max-width: 520px){
+  .post{ padding: 16px 14px 12px; }
+  .gallery{ grid-template-columns: 1fr; }
 }
-
-  color: var(--muted);
-  text-align:center;
-}
-
-
-
